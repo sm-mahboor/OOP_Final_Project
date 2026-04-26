@@ -113,8 +113,9 @@ On the terminal, navigate to directory where you compiled the program and run th
 ```
 ./FleetManager
 ```
+Alternatively, you can also run the .exe directly from Windows GUI.
 The program starts immediately and begins with asking user to enter the maximum fleet size their company can manage.
-###NOTE: For ease of use, this program pre-loads sample data (3 vehicles, 2 drivers, 2 routes) so you can test all features right away without entering data manually.
+### NOTE: For ease of use, this program pre-loads sample data (3 vehicles, 2 drivers, 2 routes) so you can test all features right away without entering data manually.
 
 ---
 
