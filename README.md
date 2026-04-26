@@ -1,6 +1,6 @@
 # 🚛 Transport Fleet Management System
 
-A console-based C++ application for managing a logistics company's fleet of vehicles, drivers, routes, and shipments. This project demonstrates core Object-Oriented Programming concepts including encapsulation, inheritance, abstraction, and polymorphism, in addition to dynamic memory allocation.
+A console-based C++ application for managing a logistics company's fleet of vehicles, drivers, routes, and shipments. This project demonstrates core Object-Oriented Programming concepts including encapsulation, inheritance, abstraction, and polymorphism, in addition to dynamic memory allocation and file handling.
 
 ---
 
@@ -31,6 +31,7 @@ The freight cost is calculated based on vehicle type, cargo weight, distance, an
 ```
 Header and Implementation Files        <-- separate file for each class 
 main.cpp                               <-- combines functions from all classes into a menu-driven interface
+.txt files                             <-- Used to store data to and load data from the secondary storage
 ```
 
 ### Class Hierarchy
@@ -75,7 +76,7 @@ At the end of the day, user can select **View All Shipments** to get a complete 
 
 ---
 
-## ⚙️ OOP Concepts Demonstrated
+## ⚙️ Concepts Demonstrated
 
 | Concept | Implementation |
 |--------|-------|
@@ -87,6 +88,7 @@ At the end of the day, user can select **View All Shipments** to get a complete 
 | **Function Overloading** | `showVehicle()` defined twice — once with `int` index, once with `string` plate |
 | **Operator Overloading** | `operator==`, `operator>`, `operator<<` on `Vehicle`; `operator<<` on `Route` |
 | **DMA** | `new`/`delete` used for all `Vehicle*`, `Driver*`, `Route*`, `Shipment*` arrays |
+| **File Handling** | Vehicles stored in `vehicles.txt`, Routes in `routes.txt`, and Drivers in `drivers.txt` |
 
 ---
 
@@ -99,9 +101,9 @@ At the end of the day, user can select **View All Shipments** to get a complete 
 
 ### Procedure:
 - Download the full ```Complete_Project_Code``` folder, and navigate to the folder on terminal
-- For g++, type in terminal:
+- For g++, using VSCode's terminal, type and run:
 ```
-g++ *.cpp -o FleetManager
+g++ (dir *.cpp) -o FleetManager
 ```
 - Compiler will compile all .cpp files into a .exe file labelled 'FleetManager.exe'
 
@@ -114,26 +116,14 @@ On the terminal, navigate to directory where you compiled the program and run th
 ./FleetManager
 ```
 Alternatively, you can also run the .exe directly from Windows GUI.
-The program starts immediately and begins with asking user to enter the maximum fleet size their company can manage.
-### NOTE: For ease of use, this program pre-loads sample data (3 vehicles, 2 drivers, 2 routes) so you can test all features right away without entering data manually.
+The program starts immediately and loads data from text files if present.
+### NOTE: For ease of use, this program pre-loads sample data (3 vehicles, 2 drivers, 2 routes) for the first launch so you can test all features right away without entering data manually.
 
 ---
 
 ## 📖 How to Use the System
 
-When the program starts, the following menu is displayed:
-```
-  ENTER MAXIMUM CAPACITY FOR FOLLOWING DATA:
-  1 -> VEHICLE FLEET,
-  2 -> DRIVERS,
-  3 -> ROUTES,
-  4 -> SHIPMENTS,
-  IN THAT ORDER:
-```
-
-Enter the capacity in sequence asked to continue.
-
-After that, program takes user to the home screen:
+When the program starts, the user is taken straight to the home screen:
 ```
   ========================================
    FAST LOGISTICS - FLEET MANAGEMENT
@@ -173,13 +163,17 @@ For easier flow of program, it makes use of ```system("cls")``` function from ``
 
 This menu runs in loop until the user chooses to ```[0] Exit```.
 
+Before closing, all the data of Vehicles, Drivers, and Routes in Fleet is stored into text file so it can be loaded the next time program is run.
+
 ---
 
 ## ⚠️ Assumptions & Limitations
 
-- **No file handling** — all data is lost when the program exits, as there is no save/load functionality. Therefore, program will need to run forever to work correctly.
-- **Fixed array size** — the maximum number of vehicles, drivers, routes, and shipments is capped at the value user enters at beginning. These values cannot be changed without restarting the program, which will lead to losing all data entered.
-- **No unassign / delete** — once a vehicle is added, a driver is marked On Duty or a shipment is dispatched, there is no option to reverse it.
-- **Single driver per shipment** — each shipment supports only one assigned driver. Co-driver support is not implemented.
-- **Distance is entered manually** — the system does not integrate with any mapping API. Route distances must be entered by the user.
-- **Shipment cost uses full vehicle capacity as base** — the freight cost is first calculated assuming a full load, then scaled down by the actual load factor. This means a lightly loaded expensive vehicle may still appear costly.
+- **No File Handling for Shipments** - although drivers, vehicles, and routes are kept in storage, the shipments are not. User will need to create new shipments each time program is run.
+- **Fixed array size** - the maximum number of vehicles, drivers, routes, and shipments is capped at the value user enters at beginning. These values cannot be changed without altering manually from MAX.txt and restarting the program. MAX.txt stores the maximum capacity in following manner:
+```<MAX VEHICLES> <MAX DRIVERS> <MAX ROUTES? <MAX SHIPMENTS>```
+To change this data, just change the number corresponding to the required field.
+- **No unassign / delete** - once a vehicle is added, a driver is marked On Duty or a shipment is dispatched, there is no option to reverse it.
+- **Single driver per shipment** - each shipment supports only one assigned driver. Co-driver support is not implemented.
+- **Distance is entered manually** - the system does not integrate with any mapping API. Route distances must be entered by the user.
+- **Shipment cost uses full vehicle capacity as base** - the freight cost is first calculated assuming a full load, then scaled down by the actual load factor. This means a lightly loaded expensive vehicle may still appear costly.
