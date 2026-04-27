@@ -171,7 +171,7 @@ Before closing, all the data of Vehicles, Drivers, and Routes in Fleet is stored
 
 - **No File Handling for Shipments** - although drivers, vehicles, and routes are kept in storage, the shipments are not. User will need to create new shipments each time program is run.
 - **Fixed array size** - the maximum number of vehicles, drivers, routes, and shipments is capped at the value user enters at beginning. These values cannot be changed without altering manually from MAX.txt and restarting the program. MAX.txt stores the maximum capacity in following manner:
-```<MAX VEHICLES> <MAX DRIVERS> <MAX ROUTES? <MAX SHIPMENTS>```
+```<MAX VEHICLES> <MAX DRIVERS> <MAX ROUTES> <MAX SHIPMENTS>```
 To change this data, just change the number corresponding to the required field.
 - **No unassign / delete** - once a vehicle is added, a driver is marked On Duty or a shipment is dispatched, there is no option to reverse it.
 - **Single driver per shipment** - each shipment supports only one assigned driver. Co-driver support is not implemented.
