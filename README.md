@@ -4,7 +4,7 @@ A console-based C++ application for managing a logistics company's fleet of vehi
 
 ---
 
-## 👥 Group Members
+## Group Members
 
 | Name | Student ID |
 |------|------------|
@@ -26,7 +26,7 @@ The freight cost is calculated based on vehicle type, cargo weight, distance, an
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 Header and Implementation Files        <-- separate file for each class 
@@ -54,7 +54,7 @@ Shipment         (standalone)
 
 ---
 
-## ✅ Use Cases
+## Use Cases
 
 ### 1. Booking a Cargo Shipment
 User selects a vehicle, assigns an available driver, picks a route, and enters the cargo weight. The system validates that the cargo fits the vehicle and automatically calculates the freight cost before dispatching.
@@ -76,7 +76,7 @@ At the end of the day, user can select **View All Shipments** to get a complete 
 
 ---
 
-## ⚙️ Concepts Demonstrated
+## Concepts Demonstrated
 
 | Concept | Implementation |
 |--------|-------|
@@ -92,7 +92,7 @@ At the end of the day, user can select **View All Shipments** to get a complete 
 
 ---
 
-## 🔧 How to Compile
+## How to Compile
 
 ### Requirements
 - A newer C++ compiler , preferably g++ (clang++ or MSVC can also work)
@@ -109,7 +109,7 @@ g++ (dir *.cpp) -o FleetManager
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 On the terminal, navigate to directory where you compiled the program and run the following command:
 ```
@@ -121,7 +121,7 @@ The program starts immediately and loads data from text files if present.
 
 ---
 
-## 📖 How to Use the System
+## How to Use the System
 
 When the program starts, the user is taken straight to the home screen:
 ```
@@ -167,7 +167,7 @@ Before closing, all the data of Vehicles, Drivers, and Routes in Fleet is stored
 
 ---
 
-## ⚠️ Assumptions & Limitations
+## Assumptions & Limitations
 
 - **No File Handling for Shipments** - although drivers, vehicles, and routes are kept in storage, the shipments are not. User will need to create new shipments each time program is run.
 - **Fixed array size** - the maximum number of vehicles, drivers, routes, and shipments is capped at the value user enters at beginning. These values cannot be changed without altering manually from MAX.txt and restarting the program. MAX.txt stores the maximum capacity in following manner:
