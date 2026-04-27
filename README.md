@@ -13,7 +13,7 @@ A console-based C++ application for managing a logistics company's fleet of vehi
 
 ---
 
-## 📋 Project Description
+## Project Description
 
 FAST Logistics Fleet Management System allows a logistics company to:
 
